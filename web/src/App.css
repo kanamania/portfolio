@@ -1,0 +1,95 @@
+#root {
+  max-width: 1280px;
+  width: 90%;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+.logo {
+  height: 6em;
+  padding: 1.5em;
+  will-change: filter;
+  transition: filter 300ms;
+}
+.logo:hover {
+  filter: drop-shadow(0 0 2em #646cffaa);
+}
+.logo.react:hover {
+  filter: drop-shadow(0 0 2em #61dafbaa);
+}
+
+@keyframes logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  a:nth-of-type(2) .logo {
+    animation: logo-spin infinite 20s linear;
+  }
+}
+
+.card {
+  flex: 1 0 calc(24% - 10px);
+  margin: 10px;
+  flex-grow: 0;
+}
+.card img {
+  height: 200px;
+  width: 100%;
+}
+.card-bottom {
+  padding-bottom: 0;
+  padding: 5px;
+}
+.read-the-docs {
+  color: #888;
+}
+.title {
+  padding: 5px 10px;
+  background: #419b40;
+  color: #fff;
+  border-radius: 20px;
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+  flex: 0 0 10%;
+}
+.content {
+  display: flex;
+  gap: 5px;
+  flex: 0 0 90%;
+  flex-wrap: wrap;
+}
+.categories, .technologies {
+  display: flex;
+  justify-content: flex-start !important;
+  gap: 10px;
+  margin-left: 10px;
+  margin-bottom: 30px;
+  align-items: center;
+  flex-basis: 100%;
+}
+.categories button, .technologies button {
+  padding: 5px 20px;
+  border: 1px solid #c0c0c0;
+  border-radius: 20px;
+}
+.categories button.selected, .technologies button.selected {
+  background: #f1e3e5;
+}
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.heading {
+  display: inline-flex;
+  font-size: 2rem;
+  text-align: left;
+  margin-left: 10px;
+}

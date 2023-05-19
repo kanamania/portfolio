@@ -1,0 +1,54 @@
+version: '3.8'
+
+networks:
+  the_net:
+
+services:
+  server:
+    image: node:lts
+    container_name: server
+    ports:
+      - 9900:9900
+    volumes:
+      - ./server:/var/www/server
+    working_dir: /var/www/server
+    stdin_open: true
+    tty: true
+    entrypoint: ["npm", "run", "start" ]
+    networks:
+      - the_net
+  web:
+    image: node:lts
+    container_name: web
+    ports:
+      - 7000:7000
+    volumes:
+      - ./web:/var/www/web
+    working_dir: /var/www/web
+    stdin_open: true
+    tty: true
+    entrypoint: ["npm", "run", "dev" ]
+    networks:
+      - the_net
+
+  server_runner:
+    image: node:lts
+    container_name: server_runner
+    working_dir: /var/www/server
+    volumes:
+      - ./server:/var/www/server
+    profiles: ["runner" ]
+    entrypoint: ["npm" ]
+    networks:
+      - the_net
+
+  web_runner:
+    image: node:lts
+    container_name: web_runner
+    working_dir: /var/www/web
+    volumes:
+      - ./front:/var/www/web
+    profiles: ["runner" ]
+#    entrypoint: ["npm" ]
+    networks:
+      - the_net
